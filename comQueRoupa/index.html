@@ -1,0 +1,321 @@
+<!--
+  index da aplicação web disponível no repositório https://github.com/ddaiane/comQueRoupaEuVou
+  autora: Daiane Marcon
+
+  Licensed under a Creative Commons Attribution-NonCommercial 3.0 license
+  https://creativecommons.org/licenses/by-nc/3.0/
+  you can do whatever you want with this code, except make money
+-->
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <title>Com que roupa eu vou</title>
+
+  <link href="css/card.css" rel="stylesheet">
+
+  <script src="js/javascript.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@300&display=swap"
+    rel="stylesheet">
+
+</head>
+
+
+
+<body onload="fnRead();">
+
+  <!-- MENU SUPERIOR-->
+
+
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Sugerir outfits
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" onclick="sugere('verao');">Outfit de verão</a></li>
+              <li><a class="dropdown-item" onclick="sugere('meiaEstacao');">Outfit de meia estação</a></li>
+              <li><a class="dropdown-item" onclick="sugere('inverno');">Outfit de inverno</a></li>
+            </ul>
+          </li>
+
+
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Filtrar peças por tipo
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" onclick="filtra('tipo','vestido');">Vestidos</a></li>
+              <li><a class="dropdown-item" onclick="filtra('tipo','calca');">Calças</a></li>
+              <li><a class="dropdown-item" onclick="filtra('tipo','short');">Shorts</a></li>
+              <li><a class="dropdown-item" onclick="filtra('tipo','saia');">Saias</a></li>
+              <li><a class="dropdown-item" onclick="filtra('tipo','camiseta');">Camisetas</a></li>
+              <li><a class="dropdown-item" onclick="filtra('tipo','blusa');">Blusas e camisas</a></li>
+              <li><a class="dropdown-item" onclick="filtra('tipo','moletom');">Moletons e blusões</a></li>
+              <li><a class="dropdown-item" onclick="filtra('tipo','casaco');">Casacos</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" onclick="filtra('tipo','sapato');">Sapatos</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Filtrar peças por clima
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" onclick="filtra('clima', 'verao');">Verão</a></li>
+              <li><a class="dropdown-item" onclick="filtra('clima', 'meiaEstacao');">Meia Estação</a></li>
+              <li><a class="dropdown-item" onclick="filtra('clima', 'inverno');">Inverno</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Filtrar peças por cor
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" onclick="filtra('cor', 'preto');">Preto</a></li>
+              <li><a class="dropdown-item" onclick="filtra('cor', 'branco');">Branco</a></li>
+              <li><a class="dropdown-item" onclick="filtra('cor', 'verde');">Verde</a></li>
+              <li><a class="dropdown-item" onclick="filtra('cor', 'azul');">Azul</a></li>
+              <li><a class="dropdown-item" onclick="filtra('cor', 'dourado');">Dourado</a></li>
+              <li><a class="dropdown-item" onclick="filtra('cor', 'vermelho');">Vermelho</a></li>
+              <li><a class="dropdown-item" onclick="filtra('cor', 'rosa');">Rosa</a></li>
+              <li><a class="dropdown-item" onclick="filtra('cor', 'cinza');">Cinza</a></li>
+              <li><a class="dropdown-item" onclick="filtra('cor', 'marrom');">Marrom</a></li>
+              <li><a class="dropdown-item" onclick="filtra('cor', 'estampado');">Estampado</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="filtra('lavar', 1);">Peças para lavar</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="filtra('manutencao', 1);">Peças na manutenção</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="padrao();">Ver todas peças</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+
+          <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Cadastrar nova peça</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- LAYOUT PADRAO CARDS -->
+
+  <ul class="cards" id="caixa">
+    <li id="cardModelo" style="display: none;">
+      <a class="card">
+        <img src="" class="card__image" alt="" id="fotoPrincipal" />
+        <div class="card__overlay">
+          <div class="card__header">
+            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+              <path /></svg>
+            <div class="card__header-text">
+              <h3 class="card__title"></h3>
+              <span class="card__status"></span>
+            </div>
+          </div>
+
+          <div class="card__description">
+            <div class="form-check form-switch">
+              <input class="form-check-input switchLavar" type="checkbox" data-onstyle="info" name="switchLavar" id=""
+                onclick="mudaDisponibilidade(this);">
+              <label class="form-check-label" for="switchLavar">Lavar?</label>
+            </div>
+            <div class="form-check form-switch">
+              <input class="form-check-input switchManutencao" type="checkbox" name="switchManutencao"
+                onclick="mudaDisponibilidade(this);">
+              <label class="form-check-label" for="switchManutencao">Precisa de manutenção?</label>
+            </div>
+            <br>
+            <div class="d-grid gap-2">
+              <button class="btn btn-secondary botaoDeleta" type="button" id="" onclick="deletaPeca(this);">Deletar
+                peça</button>
+            </div>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+
+
+
+
+  <!-- MODAL CADASTRO-->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Cadastro</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <!-- Inicio formulario cadastro peça -->
+          <div class="justify-content-center m-4">
+
+            <!-- seção seleção tipo de peça -->
+            <form id="cadastro">
+              <h1 class="display-5 text-success">Incluir nova peça</h1>
+              <br>
+              <section>
+                <label for="tipo">Selecione uma categoria</label>
+                <select class="form-select" id="tipo" name="tipo" onchange="mostraSapato(this);">
+                  <option value="vestido">Vestido</option>
+                  <option value="calca">Calça</option>
+                  <option value="short">Short</option>
+                  <option value="saia">Saia</option>
+                  <option value="sapato">Sapato</option>
+                  <option value="camiseta">Camiseta</option>
+                  <option value="blusa">Blusa e camisa</option>
+                  <option value="moletom">Moletom e blusão</option>
+                  <option value="casaco">Casaco</option>
+                </select>
+              </section>
+              <hr>
+
+              <!--seção especial sapato -->
+              <section id="salto" style="display: none;">
+                <span>Esse sapato é com ou sem salto?</span>
+                <br>
+                <input class="form-check-input" type="radio" id="comSalto" name="salto" value="true">
+                <label for="comSalto">Com salto</label>
+                <input class="form-check-input" type="radio" id="semSalto" name="salto" value="false">
+                <label for="semSalto">Sem salto</label>
+                <input class="form-check-input" type="radio" id="naoAplica" name="salto" value="null" checked>
+                <label for="naoAplica">Não se aplica</label>
+                <hr>
+              </section>
+
+              <!-- seção cor -->
+              <section class="checkbox-group required">
+                <span>Selecione a(s) cor(es) predominantes</span>
+                <br>
+                <label for="cor"><input class="form-check-input" type="checkbox" name="cor" id="preto"
+                    value="preto">Preto</label>
+                <label for="cor"><input class="form-check-input" type="checkbox" name="cor" id="branco"
+                    value="branco">Branco</label>
+                <label for="cor"><input class="form-check-input" type="checkbox" name="cor" id="verde"
+                    value="verde">Verde</label>
+                <label for="cor"><input class="form-check-input" type="checkbox" name="cor" id="azul"
+                    value="azul">Azul</label>
+                <label for="cor"><input class="form-check-input" type="checkbox" name="cor" id="dourado"
+                    value="amarelo">Dourado</label>
+
+                <label for="cor"><input class="form-check-input" type="checkbox" name="cor" id="vermelho"
+                    value="vermelho">Vermelho</label>
+                <label for="cor"><input class="form-check-input" type="checkbox" name="cor" id="rosa"
+                    value="rosa">Rosa</label>
+                <label for="cor"><input class="form-check-input" type="checkbox" name="cor" id="cinza"
+                    value="roxo">Cinza</label>
+                <label for="cor"><input class="form-check-input" type="checkbox" name="cor" id="marrom"
+                    value="laranja">Marrom</label>
+                <label for="cor"><input class="form-check-input" type="checkbox" name="cor" id="estampado"
+                    value="estampado">Estampado</label>
+              </section>
+              <hr>
+
+              <!--seção clima -->
+              <section id="clima">
+                <span>Selecione o clima ideal de uso dessa peça</span>
+                <br>
+                <input class="form-check-input" type="radio" id="verao" name="clima" value="verao">
+                <label for="verao">Verão</label>
+                <input class="form-check-input" type="radio" id="meiaEstacao" name="clima" value="meiaEstacao" checked>
+                <label for="meiaEstacao">Meia Estação</label>
+                <input class="form-check-input" type="radio" id="inverno" name="clima" value="inverno">
+                <label for="inverno">Inverno</label>
+                <hr>
+              </section>
+
+              <!--seção lavar -->
+              <section id="lavar">
+                <span>Esta peça está indisponível para ser lavada?</span>
+                <br>
+                <input class="form-check-input" type="radio" name="lavar" value="true">
+                <label for="sim">Sim</label>
+                <input class="form-check-input" type="radio" name="lavar" value="false" checked>
+                <label for="nao">Não</label>
+                <hr>
+              </section>
+
+              <!--seção manutencao -->
+              <section id="manutencao">
+                <span>Esta peça está precisando de manutenção?</span>
+                <br>
+                <input class="form-check-input" type="radio" id="sim" name="manutencao" value="true">
+                <label for="sim">Sim</label>
+                <input class="form-check-input" type="radio" id="nao" name="manutencao" value="false" checked>
+                <label for="nao">Não</label>
+                <hr>
+              </section>
+
+              <!-- seção url imagem -->
+              <section>
+                <label for="imagem" class="form-label">Url da imagem:
+                  <input type="url" name="imagem" id="imagemCadastro" maxlength="400" class="form-control" required>
+                </label>
+              </section>
+
+
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button id="botaoCadastrar" type="submit" class="btn btn-primary" onclick="valida();">Cadastrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- FIM MODAL CADASTRO -->
+
+
+
+  <!-- RODAPÉ DE FIM DE RESULTADOS -->
+  <nav class="navbar navbar-light bg-light text-center" id="rodape">
+
+    <h4 class="text-center mx-auto">Não há mais opções a serem mostradas.</h4>
+
+  </nav>
+
+</body>
+
+</html>
