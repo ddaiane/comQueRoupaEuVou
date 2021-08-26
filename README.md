@@ -1,7 +1,7 @@
 # ComQueRoupaEuVou
 ###### Repositório de aplicação web que gerencia um guarda-roupas e sugere looks com base nas peças cadastradas
 
-*(código da versão inicial da aplicação. em breve pretendo adicionar funcionalidades e hospedar)*
+*(código da versão inicial da aplicação. em breve pretendo adicionar funcionalidades e hospedar, porém a atual versão já está totalmente funcional)*
 
 
 para testar enquanto a aplicação não está hospedada:
