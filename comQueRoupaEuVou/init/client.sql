@@ -1,6 +1,7 @@
---- primeira versão do banco de dados para aplicação web que gerencia peças de roupas de um guarda-roupa hipotético
---- autor: Daiane Marcon
---- 
+--
+-- primeira versão do banco de dados para aplicação web que gerencia peças de roupas de um guarda-roupa hipotético
+-- autor: Daiane Marcon
+-- 
 
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";

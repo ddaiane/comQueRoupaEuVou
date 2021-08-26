@@ -147,8 +147,8 @@
      * conecta no banco de dados mySQL
      */
     function connect(){
-        $connection = mysqli_connect("db", "crud", "crud");
-        mysqli_select_db($connection, "crud");
+        $connection = mysqli_connect("db", "roupa", "roupa");
+        mysqli_select_db($connection, "roupa");
         return $connection;
     }
 
